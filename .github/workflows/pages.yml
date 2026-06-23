@@ -62,6 +62,8 @@ jobs:
 
       - name: Build
         shell: bash
+        env:
+          GITHUB_PAGES: "true"
         run: |
           set -euo pipefail
           source "$HOME/.local/share/swiftly/env.sh"
