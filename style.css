@@ -1,0 +1,239 @@
+:root {
+  color-scheme: dark;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #0b0d13;
+  color: #f7f8fb;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 4vw, 44px);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(98, 215, 255, 0.26), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(255, 111, 97, 0.2), transparent 28%),
+    radial-gradient(circle at 72% 82%, rgba(255, 209, 102, 0.17), transparent 31%),
+    linear-gradient(135deg, #0b0d13 0%, #161924 44%, #111418 100%);
+}
+
+.calculator {
+  width: min(100%, 420px);
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.23), rgba(255, 255, 255, 0.08)),
+    rgba(20, 24, 32, 0.62);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.46),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -22px 70px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(28px) saturate(1.45);
+  -webkit-backdrop-filter: blur(28px) saturate(1.45);
+}
+
+.shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.4), transparent 30%),
+    linear-gradient(300deg, transparent 54%, rgba(255, 255, 255, 0.1));
+  opacity: 0.7;
+}
+
+.calc-header,
+.display-panel,
+.keypad {
+  position: relative;
+}
+
+.calc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: rgba(247, 248, 251, 0.58);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.42rem, 8vw, 2rem);
+  line-height: 1;
+}
+
+.status-dot {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 13px;
+  border-radius: 999px;
+  background: #6ef3c5;
+  box-shadow: 0 0 22px rgba(110, 243, 197, 0.9);
+}
+
+.display-panel {
+  min-height: 142px;
+  display: grid;
+  align-content: end;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 22px;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06)),
+    rgba(8, 11, 18, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -18px 36px rgba(0, 0, 0, 0.2);
+}
+
+.equation {
+  min-height: 22px;
+  overflow: hidden;
+  color: rgba(247, 248, 251, 0.56);
+  font-size: 0.95rem;
+  text-align: right;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.display {
+  min-height: 55px;
+  overflow: hidden;
+  color: #ffffff;
+  font-size: clamp(2.2rem, 12vw, 3.8rem);
+  font-weight: 750;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.calc-key {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 18px;
+  color: #fbfcff;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.08)),
+    rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    0 12px 24px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1.2rem, 5vw, 1.55rem);
+  font-weight: 720;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.calc-key:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.48),
+    0 18px 30px rgba(0, 0, 0, 0.3);
+}
+
+.calc-key:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.calc-key:focus-visible {
+  outline: 3px solid rgba(110, 243, 197, 0.82);
+  outline-offset: 3px;
+}
+
+.utility {
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.11)),
+    rgba(123, 141, 168, 0.26);
+}
+
+.operator {
+  background:
+    linear-gradient(150deg, rgba(118, 226, 255, 0.5), rgba(52, 114, 210, 0.22)),
+    rgba(24, 114, 180, 0.24);
+}
+
+.equals {
+  background:
+    linear-gradient(150deg, rgba(255, 219, 122, 0.88), rgba(255, 92, 92, 0.44)),
+    #da684a;
+  color: #16120d;
+}
+
+@media (max-width: 430px) {
+  .shell {
+    padding: 14px;
+  }
+
+  .calculator {
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .display-panel {
+    min-height: 126px;
+    padding: 18px;
+  }
+
+  .keypad {
+    gap: 9px;
+  }
+
+  .calc-key {
+    border-radius: 15px;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "hello-world-swift",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@elementary-swift/vite-plugin-swift-wasm": "0.1.3",
+    "binaryen": "^130.0.0",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "@bjorn3/browser_wasi_shim": "~0.4.0",
+    "elementary-ui-browser-runtime": "file:.build/checkouts/elementary-ui/BrowserRuntime"
+  }
+}
