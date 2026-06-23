@@ -34,13 +34,13 @@ jobs:
           curl -O "https://download.swift.org/swiftly/linux/swiftly-1.1.2-$(uname -m).tar.gz"
           tar -zxf "swiftly-1.1.2-$(uname -m).tar.gz"
           ./swiftly init --assume-yes --skip-install --no-modify-profile
-          echo "$HOME/.swiftly/bin" >> "$GITHUB_PATH"
+          echo "$HOME/.local/share/swiftly/bin" >> "$GITHUB_PATH"
 
       - name: Install Swift WebAssembly toolchain
         shell: bash
         run: |
           set -euo pipefail
-          source "$HOME/.swiftly/env.sh"
+          source "$HOME/.local/share/swiftly/env.sh"
           swiftly install 6.3.2 --use --assume-yes
           swift sdk install https://download.swift.org/swift-6.3.2-release/wasm-sdk/swift-6.3.2-RELEASE/swift-6.3.2-RELEASE_wasm.artifactbundle.tar.gz --checksum a61f0584c93283589f8b2f42db05c1f9a182b506c2957271402992655591dd7c
           swift --version
@@ -53,7 +53,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          source "$HOME/.swiftly/env.sh"
+          source "$HOME/.local/share/swiftly/env.sh"
           npm run build
 
       - name: Setup Pages
