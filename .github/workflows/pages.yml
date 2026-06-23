@@ -27,6 +27,11 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Install Swift system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev
+
       - name: Install Swiftly
         shell: bash
         run: |
@@ -42,6 +47,7 @@ jobs:
           set -euo pipefail
           source "$HOME/.local/share/swiftly/env.sh"
           swiftly install 6.3.2 --use --assume-yes
+          hash -r
           swift sdk install https://download.swift.org/swift-6.3.2-release/wasm-sdk/swift-6.3.2-RELEASE/swift-6.3.2-RELEASE_wasm.artifactbundle.tar.gz --checksum a61f0584c93283589f8b2f42db05c1f9a182b506c2957271402992655591dd7c
           swift --version
           swift sdk list
